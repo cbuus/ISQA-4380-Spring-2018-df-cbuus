@@ -21,7 +21,7 @@ class Customer(models.Model):
         self.save()
 
     def __str__(self):
-        return self.title
+        return self.customer_Name
 
 class Stock(models.Model):
     stock_ID = models.AutoField(primary_key=True)
@@ -41,7 +41,7 @@ class Stock(models.Model):
         self.save()
 
     def __str__(self):
-        return self.title
+        return self.stock_ID
 
 class CryptoCurrency(models.Model):
     CryptoCurrency_ID = models.AutoField(primary_key=True)
@@ -60,4 +60,4 @@ class CryptoCurrency(models.Model):
         self.save()
 
     def __str__(self):
-        return self.title
+        return self.CryptoCurrency_ID
