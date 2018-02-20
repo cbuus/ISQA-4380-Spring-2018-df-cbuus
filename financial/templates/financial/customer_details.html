@@ -1,13 +1,5 @@
 {% extends 'financial/base.html' %}
 
 {% block content %}
-    <div class="customer">
-        {% if customer.customer_Created_Date %}
-            <div class="date">
-                {{ customers.customer_Created_Date }}
-            </div>
-        {% endif %}
-        <h1>{{ customer.customer_Name }}</h1>
-        <p>{{ customer_Name|linebreaksbr }}</p>
-    </div>
+  
 {% endblock %}
