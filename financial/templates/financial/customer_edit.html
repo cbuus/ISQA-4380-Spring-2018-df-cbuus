@@ -1,9 +1,6 @@
-{% extends 'financial/base.html' %}
-
-{% block content %}
-    <h1>New post</h1>
-    <form method="CUSTOMER" class="customer-form">{% csrf_token %}
-        {{ customer.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
-    </form>
+{% extends 'financial/base.html' %} {% block content %}
+<h1>New customer</h1>
+<form method="POST" class="customer-form">{% csrf_token %} {{ customer.as_p }}
+  <button type="submit" class="save btn btn-default">Save</button>
+</form>
 {% endblock %}

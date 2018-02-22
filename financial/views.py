@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.utils import timezone
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Customer
 from .forms import CustomerForm
 
@@ -16,18 +16,13 @@ def customer_details(request, pk):
     return render(request, 'financial/customer_details.html', {'customer': customer})
 
 def customer_new(request):
-    if request.method == "CUSTOMER":
-        customer = CustomerForm(request.CUSTOMER)
-        if customer.is_valid():
+    if request.method == "POST":
+        form = CustomerForm(request.POST)
+
+        if form.is_valid():
             customer = form.save(commit=False)
-            customer.customer_Name = request.user
             customer.save()
-            return redirect('customer_detail', pk=customer.pk)
+            return redirect('customer_details', pk=customer.pk)
     else:
         customer = CustomerForm()
-    return render(request, 'financial/customer_edit.html', {'customer': customer})
-
-
-def customer_new(request):
-    customer = CustomerForm()
     return render(request, 'financial/customer_edit.html', {'customer': customer})
