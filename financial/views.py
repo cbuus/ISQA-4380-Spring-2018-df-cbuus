@@ -25,16 +25,16 @@ def customer_new(request):
             return redirect('customer_details', pk=customer.pk)
     else:
         customer = CustomerForm()
-    return render(request, 'financial/customer_edit.html', {'customer': customer})
+    return render(request, 'financial/customer_new.html', {'customer': customer})
 
 def customer_edit(request, pk):
-    customer = get_object_or_404(Post, pk=pk)
+    customer = get_object_or_404(Customer, pk=pk)
     if request.method == "POST":
-        form = CustomerForm(request.POST, instance=customer)
-        if form.is_valid():
-            customer = form.save(commit=False)
+        customer = CustomerForm(request.POST, instance=customer)
+        if customer.is_valid():
+            customer = customer.save(commit=False)
             customer.save()
-            return redirect('customer_detail', pk=customer.pk)
+            return redirect('customer_details', pk=customer.pk)
     else:
-        form = CustomerForm(instance=customer)
+        customer = CustomerForm(instance=customer)
     return render(request, 'financial/customer_edit.html', {'customer': customer})

@@ -11,9 +11,9 @@
 
 <body>
   <div class="page-header">
-      <h2><a href="/">Home</a></h2>
-      <h2><a href="{% url 'customer_list' %}">Django Customer</a></h2>
-      <h2><a href="">Django Admin</a></h2>
+    <h2><a href="/">Home</a></h2>
+    <h2><a href="{% url 'customer_list' %}">Django Customer</a></h2>
+    <h2><a href="">Django Admin</a></h2>
   </div>
 
   <div class="content container">
@@ -23,9 +23,7 @@
       <div class="col-md-8">
         {% for customer in customers %}
         <div class="date">
-            <h1><a href="{% url 'customer_details' pk=customer.pk %}">{{ customer.customer_Name }}</a>
-            <a href="" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a></h1>
-
+          <h1><a href="{% url 'customer_details' pk=customer.pk %}">{{ customer.customer_Name }}</a>
         </div>
         {% endfor %}
         <a href="{% url 'customer_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
