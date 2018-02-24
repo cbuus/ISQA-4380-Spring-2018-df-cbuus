@@ -25,7 +25,7 @@ class Customer(models.Model):
 
 class Stock(models.Model):
     stock_ID = models.AutoField(primary_key=True)
-    stock_Customer = models.ForeignKey('auth.User',on_delete=models.CASCADE)
+    stock_Customer = models.ForeignKey('Customer',on_delete=models.CASCADE)
     stock_Symbol = models.CharField(max_length=200)
     stock_Name = models.CharField(max_length=200)
     stock_Number_of_Shares = models.CharField(max_length=200)
@@ -41,7 +41,7 @@ class Stock(models.Model):
         self.save()
 
     def __str__(self):
-        return self.stock_ID
+        return self.stock_Name
 
 class CryptoCurrency(models.Model):
     CryptoCurrency_ID = models.AutoField(primary_key=True)
