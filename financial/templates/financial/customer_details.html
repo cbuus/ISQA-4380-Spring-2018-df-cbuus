@@ -1,9 +1,9 @@
-{% extends 'financial/base.html' %} from .models import Customer, Stock {% block content %}
+{% extends 'financial/base.html' %}
+{% block content %}
 
 <div class="financial">
   <h1 id="title">Django Customer Details</h1>
-  <h3>______________________________</h3>
-  <h3>{{ customer.customer_Name }}</h3>
+  <h2 id="customer">{{ customer.customer_Name }}</h2>
   <p>{{ customer.customer_StreetAddress|linebreaksbr }}</p>
   <p>{{ customer.customer_City|linebreaksbr }}</p>
   <p>{{ customer.customer_State|linebreaksbr }}</p>
@@ -11,13 +11,13 @@
   <p>{{ customer.customer_Email|linebreaksbr }}</p>
   <p>{{ customer.customer_Phone|linebreaksbr }}</p>
   <a class="btn btn-default" href="{% url 'customer_edit' pk=customer.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+  <a class="btn btn-default" href="{% url 'customer_delete' pk=customer.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
 
-  <h1>Django Customer Stocks</h1> {% for stock in stocks %}
-  <h1>{{ stock.stock_Name }}</h1> {% endfor %}
+  <h1 id="title">Django Customer Stocks</h1>
+  <a class="btn btn-default" href="{% url 'stock_new' %}"><span class="glyphicon glyphicon-plus"></span></a>
 
-  <a class="btn btn-default" href="#"><span class="glyphicon glyphicon-plus"></span></a>
 
-  <h1>Crypto</h1>
+  <h1 id="title">Crypto</h1>
   <a class="btn btn-default" href="#"><span class="glyphicon glyphicon-plus"></span></a>
 
 </div>

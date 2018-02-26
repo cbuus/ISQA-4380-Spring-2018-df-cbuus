@@ -13,8 +13,7 @@ def customer_list(request):
 
 def customer_details(request, pk):
     customer = get_object_or_404(Customer, pk=pk)
-    stock = Stock.objects.all
-    return render(request, 'financial/customer_details.html', {'customer': customer, 'stock': stock})
+    return render(request, 'financial/customer_details.html', {'customer': customer})
 
 def customer_new(request):
     if request.method == "POST":
@@ -28,6 +27,11 @@ def customer_new(request):
         customer = CustomerForm()
     return render(request, 'financial/customer_new.html', {'customer': customer})
 
+def customer_delete(request, pk):
+    customer = get_object_or_404(Customer, pk=pk)
+    customer.delete()
+    return redirect('customer_list')
+
 def customer_edit(request, pk):
     customer = get_object_or_404(Customer, pk=pk)
     if request.method == "POST":
@@ -39,3 +43,15 @@ def customer_edit(request, pk):
     else:
         customer = CustomerForm(instance=customer)
     return render(request, 'financial/customer_edit.html', {'customer': customer})
+
+def stock_new(request):
+    if request.method == "POST":
+        form = StockForm(request.POST)
+
+        if form.is_valid():
+            stock = form.save(commit=False)
+            stock.save()
+            return redirect('customer_details', pk=customer.pk)
+    else:
+        stock = StockForm()
+    return render(request, 'financial/stock_new.html', {'stock': stock})

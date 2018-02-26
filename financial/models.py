@@ -45,7 +45,7 @@ class Stock(models.Model):
 
 class CryptoCurrency(models.Model):
     CryptoCurrency_ID = models.AutoField(primary_key=True)
-    CryptoCurrency_Customer = models.ForeignKey('auth.User',on_delete=models.CASCADE)
+    CryptoCurrency_Customer = models.ForeignKey('Customer',on_delete=models.CASCADE)
     CryptoCurrency_Name = models.CharField(max_length=200)
     CryptoCurrency_Number_of_Tokens = models.CharField(max_length=200)
     CryptoCurrency_Purchase_Price = models.CharField(max_length=200)
