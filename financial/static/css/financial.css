@@ -1,0 +1,34 @@
+#NavCSS {
+  color: #FCA205;
+  padding-right: 50px;
+}
+
+#title {
+  font-size: 72px;
+  padding-bottom: 100px;
+  padding-left: 25px;
+}
+
+#description {
+  font-size: 24px;
+  padding-left: 50px;
+  width: 800px;
+}
+
+#img {
+  font-size: 72px;
+  margin-left: 1500px;
+  width: 600px;
+  height: 400px;
+}
+
+#customer {
+  color: Orange;
+  font-size: 24px;
+  padding-left: 50px;
+  font-size: 40px;
+}
+
+body{
+  background-color: gray;
+}

@@ -1,8 +1,7 @@
 from django.shortcuts import render
 from django.utils import timezone
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Customer
-from .models import Stock
+from .models import Customer, Stock
 from .forms import CustomerForm
 
 def home(request):
@@ -14,8 +13,8 @@ def customer_list(request):
 
 def customer_details(request, pk):
     customer = get_object_or_404(Customer, pk=pk)
-    stock = get_object_or_404(Stock, pk=pk)
-    return render(request, 'financial/customer_details.html', {'customer': customer})
+    stock = Stock.objects.all
+    return render(request, 'financial/customer_details.html', {'customer': customer, 'stock': stock})
 
 def customer_new(request):
     if request.method == "POST":

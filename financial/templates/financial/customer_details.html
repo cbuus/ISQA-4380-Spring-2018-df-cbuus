@@ -1,13 +1,7 @@
-{% extends 'financial/base.html' %}
-{% block content %}
+{% extends 'financial/base.html' %} from .models import Customer, Stock {% block content %}
 
 <div class="financial">
-  <h1>Django Customer Details</h1>
-  {% if customer.customer_Name %}
-  <div class="date">
-  </div>
-  {% endif %}
-
+  <h1 id="title">Django Customer Details</h1>
   <h3>______________________________</h3>
   <h3>{{ customer.customer_Name }}</h3>
   <p>{{ customer.customer_StreetAddress|linebreaksbr }}</p>
@@ -16,13 +10,15 @@
   <p>{{ customer.customer_ZIP|linebreaksbr }}</p>
   <p>{{ customer.customer_Email|linebreaksbr }}</p>
   <p>{{ customer.customer_Phone|linebreaksbr }}</p>
-
-  <p>{{ stock.stock_Name|linebreaksbr }}</p>
-
-
   <a class="btn btn-default" href="{% url 'customer_edit' pk=customer.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
 
-  <h3>Crypto</h3>
+  <h1>Django Customer Stocks</h1> {% for stock in stocks %}
+  <h1>{{ stock.stock_Name }}</h1> {% endfor %}
+
+  <a class="btn btn-default" href="#"><span class="glyphicon glyphicon-plus"></span></a>
+
+  <h1>Crypto</h1>
+  <a class="btn btn-default" href="#"><span class="glyphicon glyphicon-plus"></span></a>
 
 </div>
 {% endblock %}
