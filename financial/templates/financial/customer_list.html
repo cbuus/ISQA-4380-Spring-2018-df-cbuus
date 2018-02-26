@@ -11,7 +11,7 @@
 </head>
 
 {% block content %}
-<h1 id="title">Django Customers</h1>
+<h1 id="title">Django Customer List</h1>
  {% for customer in customers %}
 <h1><a href="{% url 'customer_details' pk=customer.pk %}" id="customer">{{ customer.customer_Name }}</a>
   {% endfor %}

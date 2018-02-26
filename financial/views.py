@@ -15,6 +15,10 @@ def customer_details(request, pk):
     customer = get_object_or_404(Customer, pk=pk)
     return render(request, 'financial/customer_details.html', {'customer': customer})
 
+def stock_details(request, pk):
+    stock = get_object_or_404(Stock, pk=pk)
+    return render(request, 'financial/stock_details.html', {'stock': stock})
+
 def customer_new(request):
     if request.method == "POST":
         form = CustomerForm(request.POST)

@@ -1,0 +1,12 @@
+{% extends 'financial/base.html' %}
+{% block content %}
+
+<div class="financial">
+  <h1 id="title">Django Stock Details</h1>
+  <p>{{ stock.stock_Name|linebreaksbr }}</p>
+
+  <a class="btn btn-default" href=""><span class="glyphicon glyphicon-pencil"></span></a>
+  <a class="btn btn-default" href=""><span class="glyphicon glyphicon-remove"></span></a>
+
+</div>
+{% endblock %}

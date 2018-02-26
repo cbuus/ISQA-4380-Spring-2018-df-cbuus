@@ -14,6 +14,40 @@
   <a class="btn btn-default" href="{% url 'customer_delete' pk=customer.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
 
   <h1 id="title">Django Customer Stocks</h1>
+  <ul>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Stock ID</th>
+            <th scope="col">Stock Symbol</th>
+            <th scope="col">Stock Name</th>
+            <th scope="col">Stock Quantity</th>
+            <th scope="col">Stock Purhcase Price</th>
+            <th scope="col">Stock Purchase Date</th>
+            <th scope="col">Stock Create Date</th>
+            <th scope="col">Stock Modified Date</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          {% for stock in customer.stock_set.all %}
+          <tr>
+            <td>{{stock.stock_ID}}</td>
+            <td>{{stock.stock_Symbol}}</td>
+            <td>{{stock.stock_Name}}</td>
+            <td>{{stock.stock_Number_of_Shares}}</td>
+            <td>{{stock.stock_Purchase_Price}}</td>
+            <td>{{stock.stock_Purchase_Date}}</td>
+            <td>{{stock.stock_Created_Date}}</td>
+            <td>{{stock.stock_Modified_Date}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+  </ul>
+
+
   <a class="btn btn-default" href="{% url 'stock_new' %}"><span class="glyphicon glyphicon-plus"></span></a>
 
 
